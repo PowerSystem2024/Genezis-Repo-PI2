@@ -1,3 +1,5 @@
+import java.util.Random;
+
 /**
  * 
  * @author Sammy Guergachi <sguergachi at gmail.com>
@@ -18,11 +20,22 @@ public class Cuenta {
         this.estaActiva = true;
     }
 
+    //Metodo Para Generar un numero Aleatorio
+    private static String generarNumeroAleatorio(){
+        Random rand = new Random();
+        StringBuilder sb = new StringBuilder();
+        for(int i = 0; i < 10; i++){
+            sb.append(rand.nextInt(10));
+        }
+        return sb.toString();
+    }
+
     //metodo para abrir una cuenta
     public static Cuenta abrirCuenta(){
         java.util.Scanner sc = new java.util.Scanner(System.in);
-        System.out.println("Ingrese el numero de cuenta: ");
-        String numeroCuenta = sc.nextLine();
+
+        String numeroCuenta = generarNumeroAleatorio();
+        System.out.println("Número de cuenta generado: " + numeroCuenta);
 
         System.out.println("Ingrese el titular: ");
         String titular = sc.nextLine();
