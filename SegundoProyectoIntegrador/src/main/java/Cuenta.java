@@ -34,7 +34,26 @@ public class Cuenta {
         }
         return sb.toString();
     }
+    //metodo para Que seleccione el Tipo de cuenta
+    public static String seleccionarTipoCuenta(Scanner sc) {
+        while (true){
+            System.out.println("Seleccione el tipo de cuenta:");
+            System.out.println("1. Cuenta Corriente");
+            System.out.println("2. Cuenta de Ahorros");
+            System.out.println("3. Cuenta a Plazo Fijo");
+            System.out.print("Ingrese el número de su elección: ");
 
+            int opcion = sc.nextInt();
+            sc.nextLine();
+
+            switch (opcion) {
+                case 1: return "Cuenta Corriente";
+                case 2: return "Cuenta de Ahorros";
+                case 3: return "Cuenta a Plazo Fijo";
+                default: return null;
+            }
+        }
+    }
 
     // Método para abrir una cuenta
     public static Cuenta abrirCuenta() {
@@ -50,8 +69,7 @@ public class Cuenta {
         double saldoInicial = sc.nextDouble();
         sc.nextLine(); // Consume el salto de línea pendiente
 
-        System.out.println("Ingrese el tipo de cuenta: ");
-        String tipoCuenta = sc.nextLine();
+        String tipoCuenta = seleccionarTipoCuenta(sc);
 
         return new Cuenta(numeroCuenta, titular, saldoInicial, tipoCuenta, true);
     }
