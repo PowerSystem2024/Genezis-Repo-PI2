@@ -49,7 +49,7 @@ public class Cuenta {
             switch (opcion) {
                 case 1: return "Cuenta Corriente";
                 case 2: return "Cuenta de Ahorros";
-                case 3: return "Cuenta a Plazo Fijo";
+                case 3: return "Cuentas de nómina";
                 default: return null;
             }
         }
