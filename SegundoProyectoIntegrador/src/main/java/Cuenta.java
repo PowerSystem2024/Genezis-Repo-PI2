@@ -36,14 +36,4 @@ public class Cuenta {
         return new Cuenta(numeroCuenta, titular, saldoInicial, tipoCuenta, true);
     }
 
-    //metodo para cerrar una cuenta
-    public void cerrarCuenta(){
-        if(estaActiva){
-            estaActiva = false;
-            System.out.println("La Cuenta ha sido Cerrada");
-        }else {
-            System.out.println("La Cuenta ya esta cerrada");
-        }
-    }
-
 }
