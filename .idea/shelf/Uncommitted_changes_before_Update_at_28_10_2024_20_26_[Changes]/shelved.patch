@@ -1,0 +1,21 @@
+Index: SegundoProyectoIntegrador/src/main/java/Cuenta.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import java.util.Random;\r\nimport java.util.Scanner;\r\n\r\npublic class Cuenta {\r\n    private String numeroCuenta;\r\n    private String titular;\r\n    private double saldo;\r\n    private String tipoCuenta;\r\n    private boolean estaActiva;\r\n\r\n    // Constructor para crear una nueva Cuenta\r\n    public Cuenta(String numeroCuenta, String titular, double saldo, String tipoCuenta, boolean estado) {\r\n        this.numeroCuenta = numeroCuenta;\r\n        this.titular = titular;\r\n        this.saldo = saldo;\r\n        this.tipoCuenta = tipoCuenta;\r\n        this.estaActiva = true;\r\n    }\r\n\r\n    //Métodos getter\r\n    public String getNumeroCuenta() {return numeroCuenta;}\r\n    public String getTitular() {return titular;}\r\n    public double getSaldo() {return saldo;}\r\n    public String getTipoCuenta() {return tipoCuenta;}\r\n    public boolean isEstaActiva() {return estaActiva;}\r\n\r\n\r\n    // Método para generar un número aleatorio\r\n    private static String generarNumeroAleatorio() {\r\n        Random rand = new Random();\r\n        StringBuilder sb = new StringBuilder();\r\n        for (int i = 0; i < 10; i++) {\r\n            sb.append(rand.nextInt(10));\r\n        }\r\n        return sb.toString();\r\n    }\r\n    //metodo para Que seleccione el Tipo de cuenta\r\n    public static String seleccionarTipoCuenta(Scanner sc) {\r\n        while (true){\r\n            System.out.println(\"Seleccione el tipo de cuenta:\");\r\n            System.out.println(\"1. Cuenta Corriente\");\r\n            System.out.println(\"2. Cuenta de Ahorros\");\r\n            System.out.println(\"3. Cuenta a Plazo Fijo\");\r\n            System.out.print(\"Ingrese el número de su elección: \");\r\n\r\n            int opcion = sc.nextInt();\r\n            sc.nextLine();\r\n\r\n            switch (opcion) {\r\n                case 1: return \"Cuenta Corriente\";\r\n                case 2: return \"Cuenta de Ahorros\";\r\n                case 3: return \"Cuentas de nómina\";\r\n                default: return null;\r\n            }\r\n        }\r\n    }\r\n\r\n    // Método para abrir una cuenta\r\n    public static Cuenta abrirCuenta() {\r\n        Scanner sc = new Scanner(System.in);\r\n\r\n        String numeroCuenta = generarNumeroAleatorio();\r\n        System.out.println(\"Número de cuenta generado: \" + numeroCuenta);\r\n\r\n        System.out.println(\"Ingrese el titular: \");\r\n        String titular = sc.nextLine();\r\n\r\n        System.out.println(\"Ingrese el saldo Inicial: \");\r\n        double saldoInicial = sc.nextDouble();\r\n        sc.nextLine(); // Consume el salto de línea pendiente\r\n\r\n        String tipoCuenta = seleccionarTipoCuenta(sc);\r\n\r\n        return new Cuenta(numeroCuenta, titular, saldoInicial, tipoCuenta, true);\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/SegundoProyectoIntegrador/src/main/java/Cuenta.java b/SegundoProyectoIntegrador/src/main/java/Cuenta.java
+--- a/SegundoProyectoIntegrador/src/main/java/Cuenta.java	(revision d71108cbc38c60264ac92ea30b1847d3d6a94c17)
++++ b/SegundoProyectoIntegrador/src/main/java/Cuenta.java	(date 1729526349567)
+@@ -29,8 +29,8 @@
+     private static String generarNumeroAleatorio() {
+         Random rand = new Random();
+         StringBuilder sb = new StringBuilder();
+-        for (int i = 0; i < 10; i++) {
+-            sb.append(rand.nextInt(10));
++        for (int i = 0; i < 6; i++) {
++            sb.append(rand.nextInt(6));
+         }
+         return sb.toString();
+     }
