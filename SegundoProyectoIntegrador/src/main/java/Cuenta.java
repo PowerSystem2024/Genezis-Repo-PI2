@@ -73,4 +73,12 @@ public class Cuenta {
 
         return new Cuenta(numeroCuenta, titular, saldoInicial, tipoCuenta, true);
     }
+    // Metodo para retirar dinero (Transferencia)
+    public void retirar(double monto) {
+        if (saldo >= monto) {
+            saldo -= monto;
+        } else {
+            System.out.println("Saldo insuficiente.");
+        }
+    }
 }
