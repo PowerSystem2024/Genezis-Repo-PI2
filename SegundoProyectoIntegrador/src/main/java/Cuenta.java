@@ -2,11 +2,12 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Cuenta {
-    private String numeroCuenta;
-    private String titular;
-    private double saldo;
-    private String tipoCuenta;
-    private boolean estaActiva;
+    String numeroCuenta;
+    String titular;
+    double saldo;
+    String tipoCuenta;
+    boolean estaActiva;
+
 
     // Constructor para crear una nueva Cuenta
     public Cuenta(String numeroCuenta, String titular, double saldo, String tipoCuenta, boolean estado) {
@@ -17,12 +18,24 @@ public class Cuenta {
         this.estaActiva = true;
     }
 
-    //Métodos getter
+    //Metodo Getters and setters
     public String getNumeroCuenta() {return numeroCuenta;}
+    public void setNumeroCuenta(String numeroCuenta) {this.numeroCuenta = numeroCuenta;}
+
     public String getTitular() {return titular;}
+    public void setTitular(String titular) {this.titular = titular;}
+
     public double getSaldo() {return saldo;}
+    public void setSaldo(double saldo) {this.saldo = saldo;}
+
     public String getTipoCuenta() {return tipoCuenta;}
+    public void setTipoCuenta(String tipoCuenta) {this.tipoCuenta = tipoCuenta;}
+
     public boolean isEstaActiva() {return estaActiva;}
+    public void setEstaActiva(boolean estaActiva) {this.estaActiva = estaActiva;}
+    //================================================================================================================\\
+
+
 
 
     // Método para generar un número aleatorio
@@ -34,6 +47,7 @@ public class Cuenta {
         }
         return sb.toString();
     }
+
     //metodo para Que seleccione el Tipo de cuenta
     public static String seleccionarTipoCuenta(Scanner sc) {
         while (true){
