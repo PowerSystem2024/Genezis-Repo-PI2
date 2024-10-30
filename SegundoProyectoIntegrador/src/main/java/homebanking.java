@@ -26,25 +26,16 @@ public class homebanking {
         System.out.println("Tipo de cuenta: " + nuevaCuenta.getTipoCuenta());
         System.out.println("Estado: " + (nuevaCuenta.isEstaActiva() ? "Activa" : "Inactiva"));
 
-        // Código agregado para transferencias
-        while (true) {
-            // Preguntar si desea realizar una transferencia
+
+        // Código  para transferencias
+        while (true) {  // ciclo while
             System.out.println("\n¿Desea realizar una transferencia? (s/n)");
             String respuesta = sc.nextLine();
 
             if (respuesta.equalsIgnoreCase("s")) {
                 // Iniciar el proceso de transferencia
-                System.out.print("Ingrese el alias de la cuenta de destino : ");
-                String aliasDestino = sc.nextLine();
-
-                // Validar alias
-                while (!aliasDestino.matches("[a-zA-Z]+")) { //  bucle que se repetirá indefinidamente mientras el valor de aliasDestino no sea una cadena compuesta exclusivamente por letras.
-                    System.out.println("Alias inválido. Ingrese un alias que solo contenga letras:");
-                    aliasDestino = sc.nextLine();
-                }
-
-                double montoTransferencia = Transferencia.ingresarMonto();
-                Transferencia transferencia = new Transferencia(nuevaCuenta);
+                Transferencia transferencia = new Transferencia(nuevaCuenta); // objeto de la clase Transferencia para gestionar la operación.
+                transferencia.iniciarTransferencia(); // Llama al método encargado de realizar la transferencia
 
                 // Mostrar el estado de la cuenta después de la transferencia
                 System.out.println("\nEstado de la cuenta después de la transferencia:");
@@ -59,5 +50,6 @@ public class homebanking {
             }
         }
     }
+
 
 }
