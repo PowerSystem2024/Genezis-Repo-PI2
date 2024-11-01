@@ -88,4 +88,13 @@ public class Cuenta {
         return new Cuenta(numeroCuenta, titular, saldoInicial, tipoCuenta, true);
     }
 
+    // Método para reducir el saldo de la cuenta
+    public void retirar(double monto) {
+        if (saldo >= monto) {
+            saldo -= monto;  // Resta el monto del saldo
+        } else {
+            System.out.println("Saldo insuficiente.");
+        }
+    }
+
 }
