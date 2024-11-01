@@ -36,8 +36,6 @@ public class Cuenta {
     //================================================================================================================\\
 
 
-
-
     // Método para generar un número aleatorio
     private static String generarNumeroAleatorio() {
         Random rand = new Random();
@@ -48,41 +46,94 @@ public class Cuenta {
         return sb.toString();
     }
 
-    //metodo para Que seleccione el Tipo de cuenta
+    //metodo para Que seleccione el Tipo de cuenta con validación
     public static String seleccionarTipoCuenta(Scanner sc) {
-        while (true){
-            System.out.println("Seleccione el tipo de cuenta:");
-            System.out.println("1. Cuenta Corriente");
-            System.out.println("2. Cuenta de Ahorros");
-            System.out.println("3. Cuenta a Plazo Fijo");
-            System.out.print("Ingrese el número de su elección: ");
+        while (true) {
+            try {
+                System.out.println("Seleccione el tipo de cuenta:");
+                System.out.println("1. Cuenta Corriente");
+                System.out.println("2. Cuenta de Ahorros");
+                System.out.println("3. Cuenta a Plazo Fijo");
+                System.out.print("Ingrese el número de su elección: ");
 
-            int opcion = sc.nextInt();
-            sc.nextLine();
+                if (!sc.hasNextInt()) {
+                    System.out.println("Error: Debe ingresar un número válido.");
+                    sc.nextLine(); // Limpiar el buffer
+                    continue;
+                }
 
-            switch (opcion) {
-                case 1: return "Cuenta Corriente";
-                case 2: return "Cuenta de Ahorros";
-                case 3: return "Cuentas de nómina";
-                default: return null;
+                int opcion = sc.nextInt();
+                sc.nextLine(); // Consume el salto de línea
+
+                switch (opcion) {
+                    case 1: return "Cuenta Corriente";
+                    case 2: return "Cuenta de Ahorros";
+                    case 3: return "Cuentas de nómina";
+                    default:
+                        System.out.println("Error: Opción no válida. Por favor, seleccione 1, 2 o 3.");
+                }
+            } catch (Exception e) {
+                System.out.println("Error: Entrada no válida. Intente nuevamente.");
+                sc.nextLine(); // Limpiar el buffer
             }
         }
     }
 
-    // Método para abrir una cuenta
+    // Método para validar el titular
+    private static String validarTitular(Scanner sc) {
+        while (true) {
+            System.out.println("Ingrese el titular: ");
+            String titular = sc.nextLine().trim();
+
+            if (titular.isEmpty()) {
+                System.out.println("Error: El nombre del titular no puede estar vacío.");
+                continue;
+            }
+            return titular;
+        }
+    }
+
+    // Método para validar el saldo inicial
+    private static double validarSaldoInicial(Scanner sc) {
+        while (true) {
+            try {
+                System.out.println("Ingrese el saldo Inicial: ");
+                if (!sc.hasNextDouble()) {
+                    System.out.println("Error: Debe ingresar un número válido.");
+                    sc.nextLine(); // Limpiar el buffer
+                    continue;
+                }
+
+                double saldo = sc.nextDouble();
+                sc.nextLine(); // Consume el salto de línea
+
+                if (saldo <= 0) {
+                    System.out.println("Error: El saldo inicial no puede ser negativo.");
+                    continue;
+                }
+                return saldo;
+            } catch (Exception e) {
+                System.out.println("Error: Entrada no válida. Intente nuevamente.");
+                sc.nextLine(); // Limpiar el buffer
+            }
+        }
+    }
+
+    // Método para abrir una cuenta con validaciones
     public static Cuenta abrirCuenta() {
         Scanner sc = new Scanner(System.in);
 
+        // Generar número de cuenta
         String numeroCuenta = generarNumeroAleatorio();
         System.out.println("Número de cuenta generado: " + numeroCuenta);
 
-        System.out.println("Ingrese el titular: ");
-        String titular = sc.nextLine();
+        // Validar titular
+        String titular = validarTitular(sc);
 
-        System.out.println("Ingrese el saldo Inicial: ");
-        double saldoInicial = sc.nextDouble();
-        sc.nextLine(); // Consume el salto de línea pendiente
+        // Validar saldo inicial
+        double saldoInicial = validarSaldoInicial(sc);
 
+        // Seleccionar tipo de cuenta
         String tipoCuenta = seleccionarTipoCuenta(sc);
 
         return new Cuenta(numeroCuenta, titular, saldoInicial, tipoCuenta, true);

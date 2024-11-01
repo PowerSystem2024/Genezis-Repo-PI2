@@ -2,7 +2,7 @@ package módulo_inversiones;
 
 import java.util.Scanner;
 
-public class Módulo_Inversiones_PI2 {
+public class Inversiones {
     public static void main(String[] args) {
         double[] saldoDeCuenta = {10000};   // Saldo inicial de cuenta
         double[] saldoEnDolares = {500};    // Saldo inicial en dólares
