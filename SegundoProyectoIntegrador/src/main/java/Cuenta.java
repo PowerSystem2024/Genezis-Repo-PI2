@@ -182,4 +182,14 @@ public class Cuenta {
 
         return new Cuenta(numeroCuenta, titular, saldoEnPesos, saldoEnDolares, tipoCuenta, true);
     }
+
+    // Método para reducir el saldo de la cuenta
+    public void retirar(double monto) {
+        if (saldoEnPesos >= monto) {
+            saldoEnPesos -= monto;  // Resta el monto del saldo
+        } else {
+            System.out.println("Saldo insuficiente.");
+        }
+    }
+
 }

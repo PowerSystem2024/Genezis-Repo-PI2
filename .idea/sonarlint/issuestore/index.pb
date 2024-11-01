@@ -13,3 +13,5 @@ N
 src/main/java/Inversiones.java,0\6\064ee895ab02827f23050e5ceb49e1339578037e
 Q
 !src/main/java/ConsultaSaldos.java,8\7\87e00c70b2a8dcb4021bc15a137300b3edbd22cc
+M
+src/main/java/Extraccion.java,7\9\7920fd1f05dc4af62310db9712631118f54c3dc9

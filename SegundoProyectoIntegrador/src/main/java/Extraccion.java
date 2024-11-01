@@ -36,7 +36,7 @@ public class Extraccion {
                             break;
                         case 2:
                             // Opción para consultar saldo
-                            System.out.println("Saldo actual: $" + cuentaOrigen.getSaldo());
+                            System.out.println("Saldo actual: $" + cuentaOrigen.getSaldoEnPesos());
                             break;
                         case 3:
                             // Opción para salir
@@ -89,7 +89,7 @@ public class Extraccion {
             if (verificarExtraccion(montoExtraccion)) {
                 cuentaOrigen.retirar(montoExtraccion);
                 System.out.println("Extracción exitosa. Has retirado: $" + montoExtraccion);
-                System.out.println("Saldo restante en cuenta: $" + cuentaOrigen.getSaldo());
+                System.out.println("Saldo restante en cuenta: $" + cuentaOrigen.getSaldoEnPesos());
             } else {
                 System.out.println("Extracción fallida. Saldo insuficiente.");
             }
@@ -97,7 +97,7 @@ public class Extraccion {
 
         // Método para verificar si hay saldo suficiente
         private boolean verificarExtraccion(double cantidad) {
-            return cuentaOrigen.getSaldo() >= cantidad;
+            return cuentaOrigen.getSaldoEnPesos() >= cantidad;
         }
     }
 
