@@ -21,7 +21,8 @@ public class homebanking {
         System.out.println("\nDetalles de la cuenta creada:");
         System.out.println("Número de cuenta: " + nuevaCuenta.getNumeroCuenta());
         System.out.println("Titular: " + nuevaCuenta.getTitular());
-        System.out.println("Saldo: " + nuevaCuenta.getSaldo());
+        System.out.println("Saldo: " + nuevaCuenta.getSaldoEnPesos());
+        System.out.println("Saldo en dolares: " +nuevaCuenta.getSaldoEnDolares());
         System.out.println("Tipo de cuenta: " + nuevaCuenta.getTipoCuenta());
         System.out.println("Estado: " + (nuevaCuenta.isEstaActiva() ? "Activa" : "Inactiva"));
 
@@ -40,7 +41,7 @@ public class homebanking {
                 System.out.println("\nEstado de la cuenta después de la transferencia:");
                 System.out.println("Número de cuenta: " + nuevaCuenta.getNumeroCuenta());
                 System.out.println("Titular: " + nuevaCuenta.getTitular());
-                System.out.println("Saldo: " + nuevaCuenta.getSaldo());
+                System.out.println("Saldo: " + nuevaCuenta.getSaldoEnPesos());
                 System.out.println("Tipo de cuenta: " + nuevaCuenta.getTipoCuenta());
                 System.out.println("Estado: " + (nuevaCuenta.isEstaActiva() ? "Activa" : "Inactiva"));
             } else {

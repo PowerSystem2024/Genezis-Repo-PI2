@@ -62,11 +62,11 @@ public class ConsultaSaldos {
 
 
     public void consultaSaldoPesos(){
-        System.out.println("Saldo actual de la cuenta en pesos: $"+cuenta.getSaldoPesos());
+        System.out.println("Saldo actual de la cuenta en pesos: $"+cuenta.getSaldoEnPesos());
     }
 
     public void consultaSaldoDolares(){
-        System.out.println("Saldo actual de la cuenta en dólares estadounidenses: "+cuenta.getSaldoDolares());
+        System.out.println("Saldo actual de la cuenta en dólares estadounidenses: "+cuenta.getSaldoEnPesos());
     }
 
     public void consultaTarjetas(){

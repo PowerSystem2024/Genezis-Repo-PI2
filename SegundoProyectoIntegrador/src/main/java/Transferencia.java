@@ -28,8 +28,8 @@ public class Transferencia {
     // Método para realizar la transferencia
     private boolean realizarTransferencia() {
         if (verificarTransferencia()) {
-            double nuevoSaldo = cuentaOrigen.getSaldo() - monto; // Si la verificación fue exitosa, se calcula el nuevo saldo restando el monto a transferir del saldo actual de la cuenta de origen.
-            cuentaOrigen.setSaldo(nuevoSaldo); // Actualizar el saldo utilizando el setter
+            double nuevoSaldo = cuentaOrigen.getSaldoEnPesos() - monto; // Si la verificación fue exitosa, se calcula el nuevo saldo restando el monto a transferir del saldo actual de la cuenta de origen.
+            cuentaOrigen.setSaldoEnPesos(nuevoSaldo); // Actualizar el saldo utilizando el setter
             return true;
         }
         return false; // Si no se ejecuta el bloque if, significa que la verificación inicial falló y la transferencia no se realizó
@@ -41,7 +41,7 @@ public class Transferencia {
             System.out.println("El monto debe ser mayor a cero.");
             return false;
         }
-        if (cuentaOrigen.getSaldo() < monto) { // verifica si el saldo es menor al monto a transferir
+        if (cuentaOrigen.getSaldoEnPesos() < monto) { // verifica si el saldo es menor al monto a transferir
             System.out.println("Saldo insuficiente en la cuenta de origen.");
             return false;
         }
