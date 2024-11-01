@@ -49,6 +49,11 @@ public class homebanking {
                 break;
             }
         }
+        // Crear instancia de la clase que contiene el menú
+        Extraccion manejoExtracciones = new Extraccion(nuevaCuenta);
+
+        // Llamar al método que ejecuta el menú
+        manejoExtracciones.mostrarMenu();
     }
 
 
