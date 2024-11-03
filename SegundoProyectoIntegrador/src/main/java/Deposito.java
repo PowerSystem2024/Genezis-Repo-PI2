@@ -20,7 +20,7 @@ public class Deposito {
 
             System.out.println("DEPOSITOS");
 
-            System.out.print("Ingrese el monto que desea depositar: ");
+            System.out.println("Ingrese el monto que desea depositar: ");
             deposito = scanner.nextDouble();
 
             //verifica si el monto es valido
@@ -32,7 +32,7 @@ public class Deposito {
                 System.out.println("El monto ingresado no es válido. Debe ser mayor que cero.");
             }
 
-            System.out.print("¿Desea realizar otro depósito? (S/N): ");
+            System.out.println("¿Desea realizar otro depósito? (S/N): ");
             String continuar = scanner.next().toLowerCase();
 
             //validacion
