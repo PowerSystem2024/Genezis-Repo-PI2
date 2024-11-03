@@ -1,6 +1,9 @@
+<<<<<<< Updated upstream
 
 package preguntas_frecuentes;
 
+=======
+>>>>>>> Stashed changes
 import java.util.Scanner;
 
 public class FAQ {
@@ -92,3 +95,7 @@ public class FAQ {
             } while (opcionFAQs != 10);  // Repite hasta que seleccione la opción "Volver al Menú Principal"
         }
     }
+<<<<<<< Updated upstream
+=======
+}
+>>>>>>> Stashed changes
