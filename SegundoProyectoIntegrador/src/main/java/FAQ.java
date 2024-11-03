@@ -1,7 +1,10 @@
 
+package preguntas_frecuentes;
+
 import java.util.Scanner;
 
 public class FAQ {
+
     public static void main(String[] args) {
         FAQ();
     }
@@ -82,11 +85,10 @@ public class FAQ {
                 default -> System.out.println("No se encontró ningún resultado. Intente nuevamente.");
             }
             // Pausa antes de volver a mostrar el menú, excepto si selecciona volver al menú principal
-            if (opcionFAQs != 10) {
-                System.out.println("");
-                System.out.println("Presione cualquier tecla para volver al menú de FAQs.");
-            }
-        } while (opcionFAQs != 10);  // Repite hasta que seleccione la opción "Volver al Menú Principal"
+                if (opcionFAQs != 10) {
+                    System.out.println("");
+                    System.out.println("Presione cualquier tecla para volver al menú de FAQs.");
+                }
+            } while (opcionFAQs != 10);  // Repite hasta que seleccione la opción "Volver al Menú Principal"
+        }
     }
-}
-
