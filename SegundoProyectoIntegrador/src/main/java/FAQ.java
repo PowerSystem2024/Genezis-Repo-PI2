@@ -1,5 +1,5 @@
 
-package preguntas_frecuentes;
+package FAQ;
 
 import java.util.Scanner;
 
