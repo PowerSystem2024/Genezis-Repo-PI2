@@ -1,5 +1,5 @@
 
-package fondo_comun_inversion;
+package SubModulo_FCI;
 
 import java.util.Scanner;
 
@@ -259,4 +259,5 @@ public class SubModulo_FCI {
         mostrarFondos(saldoDeCuenta);
     }
 }
+
 
