@@ -1,16 +1,11 @@
 
-package FAQ;
+package preguntas_frecuentes;
 
 import java.util.Scanner;
 
-public class FAQ {
-
-    public static void main(String[] args) {
-        FAQ();
-    }
-
+public class FAQs {
     // Método para mostrar las preguntas frecuentes
-    public static void FAQ() {
+    public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
         int opcionFAQs;
 
@@ -89,6 +84,6 @@ public class FAQ {
                     System.out.println("");
                     System.out.println("Presione cualquier tecla para volver al menú de FAQs.");
                 }
-            } while (opcionFAQs != 10);  // Repite hasta que seleccione la opción "Volver al Menú Principal"
-        }
+        } while (opcionFAQs != 10);  // Repite hasta que seleccione la opción "Volver al Menú Principal"
     }
+}
