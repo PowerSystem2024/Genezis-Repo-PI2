@@ -1,25 +1,26 @@
-
 import java.util.Scanner;
 import java.util.InputMismatchException;
+
 public class Transferencia {
-    private Cuenta cuentaOrigen; //cuenta bancaria desde la cual se va a realizar la transferencia. Cuando se declara private, estamos asegurando que solo el código dentro de esta
-                                 // clase pueda acceder directamente a esta información.
+    private Cuenta cuentaOrigen; // cuenta bancaria desde la cual se va a realizar la transferencia. Cuando se declara private, estamos asegurando que solo el código dentro de esta
+    // clase pueda acceder directamente a esta información.
     private String aliasDestino; // Alias de la cuenta de destino
-    private double monto;
+    private double monto; // Monto a transferir
+    private String monedaSeleccionada; // variable para almacenar la moneda seleccionada (pesos o dólares)
 
     // Constructor que inicializa la cuenta de origen
-    public Transferencia(Cuenta cuentaOrigen) { // Transferencia toma como parámetro una instancia de la clase Cuenta, que representa la cuenta de origen.
+    public Transferencia(Cuenta cuentaOrigen) {
         this.cuentaOrigen = cuentaOrigen; // Transferencia toma como parámetro una instancia de la clase Cuenta, que representa la cuenta de origen.
     }
 
     // Método para iniciar el proceso de transferencia
-
-    public void iniciarTransferencia() {  //inicia el proceso de una transferencia bancaria
-        this.aliasDestino = ingresarAlias(); // solicita al usaurio que ingrese el alias
+    public void iniciarTransferencia() {
+        this.aliasDestino = ingresarAlias(); // solicita al usuario que ingrese el alias
+        this.monedaSeleccionada = seleccionarMoneda(); // solicita al usuario seleccionar la moneda de la transferencia
         this.monto = ingresarMonto(); // solicita que se ingrese el monto a transferir
 
         if (realizarTransferencia()) { // Si la transferencia fue exitosa, se ejecuta el código
-            System.out.println("Transferencia exitosa de " + monto + " desde la cuenta " + cuentaOrigen.getNumeroCuenta());
+            System.out.println("Transferencia exitosa de " + monto + " " + monedaSeleccionada + " desde la cuenta " + cuentaOrigen.getNumeroCuenta());
         } else { // Si la transferencia falló
             System.out.println("Transferencia fallida.");
         }
@@ -27,9 +28,13 @@ public class Transferencia {
 
     // Método para realizar la transferencia
     private boolean realizarTransferencia() {
-        if (verificarTransferencia()) {
-            double nuevoSaldo = cuentaOrigen.getSaldoEnPesos() - monto; // Si la verificación fue exitosa, se calcula el nuevo saldo restando el monto a transferir del saldo actual de la cuenta de origen.
-            cuentaOrigen.setSaldoEnPesos(nuevoSaldo); // Actualizar el saldo utilizando el setter
+        if (verificarTransferencia()) { // verifica si la transferencia es válida
+            // Actualiza el saldo de acuerdo a la moneda seleccionada
+            if (monedaSeleccionada.equals("pesos")) { // Si la moneda es pesos, resta el monto del saldo en pesos
+                cuentaOrigen.setSaldoEnPesos(cuentaOrigen.getSaldoEnPesos() - monto);
+            } else { // Si la moneda es dólares, resta el monto del saldo en dólares
+                cuentaOrigen.setSaldoEnDolares(cuentaOrigen.getSaldoEnDolares() - monto);
+            }
             return true;
         }
         return false; // Si no se ejecuta el bloque if, significa que la verificación inicial falló y la transferencia no se realizó
@@ -41,27 +46,51 @@ public class Transferencia {
             System.out.println("El monto debe ser mayor a cero.");
             return false;
         }
-        if (cuentaOrigen.getSaldoEnPesos() < monto) { // verifica si el saldo es menor al monto a transferir
-            System.out.println("Saldo insuficiente en la cuenta de origen.");
+        // Verifica si hay saldo suficiente en la moneda seleccionada
+        if (monedaSeleccionada.equals("pesos") && cuentaOrigen.getSaldoEnPesos() < monto) { // Si se seleccionó pesos, verifica que el saldo en pesos sea suficiente
+            System.out.println("Saldo insuficiente en pesos.");
+            return false;
+        } else if (monedaSeleccionada.equals("dólares") && cuentaOrigen.getSaldoEnDolares() < monto) { // Si se seleccionó dólares, verifica que el saldo en dólares sea suficiente
+            System.out.println("Saldo insuficiente en dólares.");
             return false;
         }
-        return true; // si el monto es positivo y hay suficiente saldo la transferencia es valida
+        return true; // Si el monto es positivo y hay saldo suficiente en la moneda seleccionada, la transferencia es válida
+    }
+
+    // Método para seleccionar la moneda de la transferencia
+    private String seleccionarMoneda() {
+        Scanner sc = new Scanner(System.in); // Objeto para leer la entrada del usuario desde la consola
+        while (true) { // bucle while infinito que se ejecutará hasta que se ingrese una opción válida
+            System.out.println("Seleccione la moneda de la transferencia:");
+            System.out.println("1. Pesos");
+            System.out.println("2. Dólares");
+            System.out.print("Ingrese el número de su elección: ");
+            int opcion = sc.nextInt();
+            sc.nextLine(); // Consume el salto de línea
+            if (opcion == 1) { // Si elige la opción 1, se selecciona pesos
+                return "pesos";
+            } else if (opcion == 2) { // Si elige la opción 2, se selecciona dólares
+                return "dólares";
+            } else { // Si la opción ingresada no es válida, se muestra un mensaje de error
+                System.out.println("Opción no válida. Por favor, seleccione 1 o 2.");
+            }
+        }
     }
 
     // Método para ingresar y validar el alias de la cuenta destino
     private String ingresarAlias() {
         Scanner sc = new Scanner(System.in); // objeto para leer la entrada del usuario desde la consola
-        String alias; // variable de tipo String para almacenar el alias ingresado.
+        String alias; // variable de tipo String para almacenar el alias ingresado
         while (true) { // bucle while infinito que se ejecutará hasta que se ingrese un alias válido
             System.out.print("Ingrese el alias de la cuenta de destino: ");
             alias = sc.nextLine();
-            if (alias.matches("[a-zA-Z]+")) { // verifica si el alias ingresado solo contiene letras Si es así, se sale del bucle.
+            if (alias.matches("[a-zA-Z.]+")) { // verifica si el alias ingresado solo contiene letras y puntos. Si es así, se sale del bucle.
                 break;
             } else {
-                System.out.println("Alias inválido. Ingrese un alias que solo contenga letras:");
+                System.out.println("Alias inválido. Ingrese un alias que solo contenga letras y puntos:");
             }
         }
-        return alias;
+        return alias; // retorna el alias una vez que es válido
     }
 
     // Método para ingresar el monto de transferencia
@@ -73,7 +102,7 @@ public class Transferencia {
             try {
                 System.out.println("Ingrese el monto a transferir:");
                 monto = sc.nextDouble();
-                if (monto <= 0) {
+                if (monto <= 0) { // verifica que el monto sea mayor a cero
                     System.out.println("El monto debe ser mayor a cero.");
                 }
             } catch (InputMismatchException e) { //InputMismatchException, consume la entrada inválida para evitar bucles infinitos.
@@ -81,8 +110,6 @@ public class Transferencia {
                 sc.next(); // Consume la entrada inválida
             }
         }
-        return monto;
+        return monto; // retorna el monto una vez que es válido
     }
-
-
 }
