@@ -5,7 +5,7 @@
 
 import java.util.Scanner;
 
-public class homebanking {
+public class MainHomebanking {
 
     
     public static void main(String[] args) {
