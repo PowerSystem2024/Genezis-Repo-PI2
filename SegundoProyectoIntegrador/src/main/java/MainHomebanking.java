@@ -5,6 +5,8 @@
 
 import java.util.Scanner;
 
+
+
 public class MainHomebanking {
 
     
@@ -25,6 +27,59 @@ public class MainHomebanking {
         System.out.println("Saldo en dolares: " +nuevaCuenta.getSaldoEnDolares());
         System.out.println("Tipo de cuenta: " + nuevaCuenta.getTipoCuenta());
         System.out.println("Estado: " + (nuevaCuenta.isEstaActiva() ? "Activa" : "Inactiva"));
+
+
+
+// -------------------------------------------------------------------------------------------------------------------
+        // BUCLE PARA LLAMAR UNA OPCIÓN DEL MENÚ PRINCIPAL - GONZA
+
+        boolean salir = false;
+
+        while (!salir) {
+            MenuPrincipal.mostrarMenu();
+            Scanner scanner = new Scanner(System.in);
+            int opcion = scanner.nextInt();
+
+            switch (opcion) {
+                case 1:
+                    Cuenta.abrirCuenta();
+                    break;
+                case 2:
+//                    realizarDeposito();
+                    break;
+                case 3:
+//                    realizarExtraccion();
+                    break;
+                case 4:
+//                    realizarTransferencia();
+                    break;
+                case 5:
+//                    realizarInversion();
+                    break;
+                case 6:
+//                    consultarSaldo();
+                    break;
+                case 7:
+//                    consultarTarjetas();
+                    break;
+                case 8:
+//                    consultarConsumos();
+                    break;
+                case 9:
+//                    mostrarPreguntasFrecuentes();
+                    break;
+                case 0:
+                    salir = true;
+                    System.out.println("Saliendo del programa...");
+                    break;
+                default:
+                    System.out.println("Opción inválida. Por favor, ingrese una opción válida.");
+            }
+        }
+
+// -------------------------------------------------------------------------------------------------------------------
+
+
 
 
         // Código  para transferencias
