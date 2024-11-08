@@ -1,5 +1,3 @@
-package Inversiones;
-
 import java.util.Scanner;
 
 public class FAQs {
