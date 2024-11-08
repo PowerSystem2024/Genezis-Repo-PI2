@@ -27,3 +27,7 @@ R
 "src/main/java/Inversiones/FCI.java,1\b\1b486f5e31f4d8104f24315477bdefe96599fe10
 S
 #src/main/java/Inversiones/FAQs.java,8\8\88eb10264c970bc515124f6f841af97261d77e0b
+^
+.src/main/java/homebanking/MainHomebanking.java,6\8\6829bd1568d68cb14997991855a893fcbe25819b
+m
+=src/main/java/homebanking/inversiones/CompraVentaDolares.java,2\9\29b4bf509c11eda3831c9cb39c87557903471041

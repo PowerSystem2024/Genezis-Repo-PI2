@@ -1,7 +1,4 @@
 package homebanking.inversiones;
 
-public class FCI {
-
-    
-
+public class CompraVentaDolares {
 }
