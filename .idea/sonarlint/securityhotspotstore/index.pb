@@ -21,3 +21,9 @@ G
 src/main/java/FAQs.java,9\b\9bfb855edb91dcaf342cede279558f7e0fbe5603
 K
 src/main/java/AliasCBU.java,e\8\e87fa65c5fb0cca527dfab9d4f5d2ff01849c843
+R
+"src/main/java/Inverciones/FCI.java,e\e\eeceeb1be7ac91b3c8e49464e910c8fa552f3a47
+R
+"src/main/java/Inversiones/FCI.java,1\b\1b486f5e31f4d8104f24315477bdefe96599fe10
+S
+#src/main/java/Inversiones/FAQs.java,8\8\88eb10264c970bc515124f6f841af97261d77e0b
