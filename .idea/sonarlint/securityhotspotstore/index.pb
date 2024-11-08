@@ -15,3 +15,7 @@ Q
 !src/main/java/ConsultaSaldos.java,8\7\87e00c70b2a8dcb4021bc15a137300b3edbd22cc
 M
 src/main/java/Extraccion.java,7\9\7920fd1f05dc4af62310db9712631118f54c3dc9
+R
+"src/main/java/MainHomebanking.java,a\e\ae260c05508d68b0415f481108b685a2391fc057
+G
+src/main/java/FAQs.java,9\b\9bfb855edb91dcaf342cede279558f7e0fbe5603

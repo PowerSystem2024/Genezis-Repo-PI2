@@ -19,14 +19,14 @@ public class MainHomebanking {
         System.out.println("Vamos a abrir una nueva cuenta:");
         Cuenta nuevaCuenta = Cuenta.abrirCuenta();
 
-        // Mostrar los detalles de la cuenta creada
-        System.out.println("\nDetalles de la cuenta creada:");
-        System.out.println("Número de cuenta: " + nuevaCuenta.getNumeroCuenta());
-        System.out.println("Titular: " + nuevaCuenta.getTitular());
-        System.out.println("Saldo: " + nuevaCuenta.getSaldoEnPesos());
-        System.out.println("Saldo en dolares: " +nuevaCuenta.getSaldoEnDolares());
-        System.out.println("Tipo de cuenta: " + nuevaCuenta.getTipoCuenta());
-        System.out.println("Estado: " + (nuevaCuenta.isEstaActiva() ? "Activa" : "Inactiva"));
+//        // Mostrar los detalles de la cuenta creada
+//        System.out.println("\nDetalles de la cuenta creada:");
+//        System.out.println("Número de cuenta: " + nuevaCuenta.getNumeroCuenta());
+//        System.out.println("Titular: " + nuevaCuenta.getTitular());
+//        System.out.println("Saldo: " + nuevaCuenta.getSaldoEnPesos());
+//        System.out.println("Saldo en dolares: " +nuevaCuenta.getSaldoEnDolares());
+//        System.out.println("Tipo de cuenta: " + nuevaCuenta.getTipoCuenta());
+//        System.out.println("Estado: " + (nuevaCuenta.isEstaActiva() ? "Activa" : "Inactiva"));
 
 
 
@@ -45,7 +45,8 @@ public class MainHomebanking {
                     Cuenta.abrirCuenta();
                     break;
                 case 2:
-//                    realizarDeposito();
+                    Deposito deposito = new Deposito(nuevaCuenta);
+                    deposito.realizarDeposito();
                     break;
                 case 3:
 //                    realizarExtraccion();

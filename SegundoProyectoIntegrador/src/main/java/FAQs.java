@@ -1,5 +1,3 @@
-package preguntas_frecuentes;
-
 import java.util.Scanner;
 
 public class FAQs {

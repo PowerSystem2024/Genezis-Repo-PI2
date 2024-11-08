@@ -17,7 +17,6 @@ public class Deposito {
 
         //comienzo de ciclo
         do {
-
             System.out.println("DEPOSITOS");
 
             System.out.println("Ingrese el monto que desea depositar: ");
@@ -25,9 +24,9 @@ public class Deposito {
 
             //verifica si el monto es valido
             if (verificarDeposito(deposito)) {
-                cuentaDestino.agregarSaldo(deposito);
+                cuentaDestino.setSaldoEnPesos(cuentaDestino.getSaldoEnPesos() + deposito);
                 System.out.println("Depósito exitoso.");
-                System.out.println("Su nuevo saldo es: $" + cuentaDestino.obtenerSaldo());
+                System.out.println("Su nuevo saldo es: $" + cuentaDestino.getSaldoEnPesos());
             } else {
                 System.out.println("El monto ingresado no es válido. Debe ser mayor que cero.");
             }
@@ -44,10 +43,9 @@ public class Deposito {
             if (continuar.equals("n")) { //si elije no continuar, se rompe el ciclo
                 break;
             }
-
         } while (true);
 
-        System.out.println("Gracias por utilizar el sistema de depósitos. Su saldo final es: $" + cuentaDestino.obtenerSaldo());
+        System.out.println("Gracias por utilizar el sistema de depósitos. Su saldo final es: $" + cuentaDestino.getSaldoEnPesos());
     }
 
     private boolean verificarDeposito(double monto) {
