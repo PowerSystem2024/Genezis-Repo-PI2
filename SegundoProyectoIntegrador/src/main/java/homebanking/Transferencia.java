@@ -1,3 +1,5 @@
+package homebanking;
+
 import java.util.Scanner;
 import java.util.InputMismatchException;
 
@@ -10,7 +12,7 @@ public class Transferencia {
 
     // Constructor que inicializa la cuenta de origen
     public Transferencia(Cuenta cuentaOrigen) {
-        this.cuentaOrigen = cuentaOrigen; // Transferencia toma como parámetro una instancia de la clase Cuenta, que representa la cuenta de origen.
+        this.cuentaOrigen = cuentaOrigen; // homebanking.Transferencia toma como parámetro una instancia de la clase homebanking.Cuenta, que representa la cuenta de origen.
     }
 
     // Método para iniciar el proceso de transferencia
@@ -20,9 +22,9 @@ public class Transferencia {
         this.monto = ingresarMonto(); // solicita que se ingrese el monto a transferir
 
         if (realizarTransferencia()) { // Si la transferencia fue exitosa, se ejecuta el código
-            System.out.println("Transferencia exitosa de " + monto + " " + monedaSeleccionada + " desde la cuenta " + cuentaOrigen.getNumeroCuenta());
+            System.out.println("homebanking.Transferencia exitosa de " + monto + " " + monedaSeleccionada + " desde la cuenta " + cuentaOrigen.getNumeroCuenta());
         } else { // Si la transferencia falló
-            System.out.println("Transferencia fallida.");
+            System.out.println("homebanking.Transferencia fallida.");
         }
     }
 

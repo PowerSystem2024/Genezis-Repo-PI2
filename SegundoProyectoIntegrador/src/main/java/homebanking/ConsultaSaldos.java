@@ -1,6 +1,5 @@
-/* Autor: Marcos Rodriguez - Grupo Genezis TUP 2024 */
+package homebanking;/* Autor: Marcos Rodriguez - Grupo Genezis TUP 2024 */
 
-import java.util.List;
 import java.util.Scanner;
 
 public class ConsultaSaldos {

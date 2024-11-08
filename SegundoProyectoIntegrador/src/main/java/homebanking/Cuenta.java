@@ -1,3 +1,5 @@
+package homebanking;
+
 import java.util.Random;
 import java.util.Scanner;
 
@@ -83,9 +85,9 @@ public class Cuenta {
         while (true) {
             try {
                 System.out.println("Seleccione el tipo de cuenta:");
-                System.out.println("1. Cuenta Corriente");
-                System.out.println("2. Cuenta de Ahorros");
-                System.out.println("3. Cuenta de nómina");
+                System.out.println("1. homebanking.Cuenta Corriente");
+                System.out.println("2. homebanking.Cuenta de Ahorros");
+                System.out.println("3. homebanking.Cuenta de nómina");
                 System.out.print("Ingrese el número de su elección: ");
 
                 if (!sc.hasNextInt()) {
@@ -98,9 +100,9 @@ public class Cuenta {
                 sc.nextLine(); // Consume el salto de línea
 
                 return switch (opcion) {
-                    case 1 -> "Cuenta Corriente";
-                    case 2 -> "Cuenta de Ahorros";
-                    case 3 -> "Cuenta de nómina";
+                    case 1 -> "homebanking.Cuenta Corriente";
+                    case 2 -> "homebanking.Cuenta de Ahorros";
+                    case 3 -> "homebanking.Cuenta de nómina";
                     default -> {
                         System.out.println("Error: Opción no válida. Por favor, seleccione 1, 2 o 3.");
                         yield seleccionarTipoCuenta(sc); // Recursión para volver a intentar

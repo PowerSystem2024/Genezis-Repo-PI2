@@ -1,3 +1,5 @@
+package homebanking;
+
 import java.util.Scanner;
 import java.util.InputMismatchException;
 
@@ -20,7 +22,7 @@ public class Extraccion {
 
             do {
                 // Mostrar menú
-                System.out.println("\n--- Menú de Cuenta Bancaria ---");
+                System.out.println("\n--- Menú de homebanking.Cuenta Bancaria ---");
                 System.out.println("1. Realizar Extracción");
                 System.out.println("2. Consultar Saldo");
                 System.out.println("3. Salir");

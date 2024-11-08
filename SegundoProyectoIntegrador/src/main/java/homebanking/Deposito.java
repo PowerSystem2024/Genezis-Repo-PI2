@@ -1,3 +1,5 @@
+package homebanking;
+
 import java.util.Scanner;
 
 public class Deposito {
