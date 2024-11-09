@@ -15,7 +15,7 @@ public class Inversiones {
         System.out.println("║  MENÚ DE INVERSIONES - HOMEBANKING ║");
         System.out.println("╠════════════════════════════════════╣");
         System.out.println("║ 1. Comprar o Vender dolares        ║");
-        System.out.println("║ 2. Realizar un Prestamo            ║");
+        System.out.println("║ 2. Realizar un Prestamos            ║");
         System.out.println("║ 3. Realizar un Plazo Fijo          ║");
         System.out.println("║ 0. Salir                           ║");
         System.out.println("║------------------------------------║");

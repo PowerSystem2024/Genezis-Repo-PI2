@@ -6,6 +6,7 @@ package homebanking; /**
 import homebanking.inversiones.CompraVentaDolares;
 import homebanking.inversiones.Inversiones;
 import homebanking.inversiones.PlazoFijo;
+import homebanking.inversiones.Prestamos;
 
 import java.util.Scanner;
 
@@ -76,6 +77,14 @@ public class MainHomebanking {
                                 break;
                             case 2:
                                 //Prestamos
+                                // Crear una instancia de la clase Prestamos
+                                Prestamos sistemaPrestamos = new Prestamos();
+
+                                // Llamar al método mostrarMenu() para iniciar el programa
+                                sistemaPrestamos.mostrarMenu();
+
+                                // El resto del código se ejecutará dentro del método mostrarMenu()
+                                // y el bucle do-while, como se definió anteriormente en la clase Prestamos.
                                 break;
 
                             case 3:
