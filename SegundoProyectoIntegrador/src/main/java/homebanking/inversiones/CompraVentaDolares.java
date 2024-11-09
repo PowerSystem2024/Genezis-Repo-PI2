@@ -8,19 +8,21 @@ public class CompraVentaDolares {
     private double tipoCambioVenta;
     private Cuenta cuenta;
 
+    // Constructor que inicializa la cuenta y los tipos de cambio de compra y venta de dólares
     public CompraVentaDolares(Cuenta nuevaCuenta) {
         cuenta = nuevaCuenta;
-        // Inicializar tipos de cambio en el constructor en lugar de en gestionarCompraVentaDolares
         tipoCambioCompra = 1190;
         tipoCambioVenta = 1180;
     }
 
+    // Método para limpiar la pantalla con varias líneas en blanco
     private void limpiarPantalla() {
         for (int i = 0; i < 50; i++) {
             System.out.println();
         }
     }
 
+    // Método para pausar la ejecución hasta que el usuario presione ENTER
     private void pausar() {
         System.out.println("\nPresione ENTER para continuar...");
         try {
@@ -28,6 +30,7 @@ public class CompraVentaDolares {
         } catch(Exception e) {}
     }
 
+    // Método que muestra el menú principal de compra y venta de dólares
     private void mostrarMenuDolares() {
         limpiarPantalla();
         System.out.println("\n╔════════════════════════════════════╗");
@@ -40,6 +43,7 @@ public class CompraVentaDolares {
         mostrarCotizaciones();
     }
 
+    // Método para mostrar las cotizaciones actuales de compra y venta de dólares
     private void mostrarCotizaciones() {
         System.out.println("\n┌────────────────────────────────────┐");
         System.out.println("│         COTIZACIONES DEL DÍA       │");
@@ -50,6 +54,7 @@ public class CompraVentaDolares {
         System.out.println("\nSeleccione una opción: ");
     }
 
+    // Método para gestionar las opciones de compra y venta de dólares
     public void gestionarCompraVentaDolares() {
         boolean salir = false;
         Scanner scanner = new Scanner(System.in);
@@ -84,6 +89,7 @@ public class CompraVentaDolares {
         }
     }
 
+    // Método para realizar la compra de dólares
     private void comprarDolares() {
         Scanner sc = new Scanner(System.in);
         boolean transaccionExitosa = false;
@@ -125,6 +131,7 @@ public class CompraVentaDolares {
         }
     }
 
+    // Método para realizar la venta de dólares
     private void venderDolares() {
         Scanner sc = new Scanner(System.in);
         boolean transaccionExitosa = false;
@@ -165,12 +172,13 @@ public class CompraVentaDolares {
         }
     }
 
+    // Método para mostrar el resultado de la operación de compra o venta de dólares
     private void mostrarResultadoOperacion(String tipoOperacion, double montoDolares, double montoEnPesos) {
         limpiarPantalla();
         System.out.println("\n╔════════════════════════════════════╗");
         System.out.println("║         RESULTADO OPERACIÓN        ║");
         System.out.println("╠════════════════════════════════════╣");
-        System.out.printf("║ %s exitosa de:                  ║%n", tipoOperacion);
+        System.out.printf("║ %s exitosa de:                 ║%n", tipoOperacion);
         System.out.printf("║ USD %-27.2f    ║%n", montoDolares);
         System.out.printf("║ $ %-29.2f    ║%n", montoEnPesos);
         System.out.println("╠════════════════════════════════════╣");
