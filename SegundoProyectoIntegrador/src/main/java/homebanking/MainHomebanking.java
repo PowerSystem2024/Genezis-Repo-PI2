@@ -95,7 +95,6 @@ public class MainHomebanking {
 
                     break;
                 case 5:
-//                    consultarSaldo();
                     ConsultaSaldos consultaSaldos = new ConsultaSaldos(nuevaCuenta);
                     consultaSaldos.mostrarMenu();
 
@@ -107,7 +106,10 @@ public class MainHomebanking {
 //                    consultarConsumos();
                     break;
                 case 8:
-//                    mostrarPreguntasFrecuentes();
+//
+                    FAQs mostrarPreguntasFrecuentes = new FAQs();
+                    mostrarPreguntasFrecuentes.mostrarPreguntasFrecuentes();
+//
                     break;
                 case 0:
                     salir = true;
