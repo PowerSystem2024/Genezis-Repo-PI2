@@ -90,10 +90,12 @@ public class MainHomebanking {
                         }
                     }
 
-
                     break;
                 case 5:
 //                    consultarSaldo();
+                    ConsultaSaldos consultaSaldos = new ConsultaSaldos(nuevaCuenta);
+                    consultaSaldos.mostrarMenu();
+
                     break;
                 case 6:
 //                    consultarTarjetas();
