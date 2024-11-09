@@ -105,7 +105,7 @@ public class CompraVentaDolares {
                     continue;
                 }
 
-                double pesosNecesarios = monto * tipoCambioVenta;
+                double pesosNecesarios = monto * tipoCambioCompra;
 
                 if (cuenta.getSaldoEnPesos() < pesosNecesarios) {
                     System.out.println("No tiene suficientes pesos para la compra. Inténtelo nuevamente.");
