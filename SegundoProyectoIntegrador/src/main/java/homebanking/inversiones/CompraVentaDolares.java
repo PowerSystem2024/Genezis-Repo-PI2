@@ -10,20 +10,17 @@ public class CompraVentaDolares {
 
     public CompraVentaDolares(Cuenta nuevaCuenta) {
         cuenta = nuevaCuenta;
+        // Inicializar tipos de cambio en el constructor en lugar de en gestionarCompraVentaDolares
+        tipoCambioCompra = 1190;
+        tipoCambioVenta = 1180;
     }
 
-    /**
-     * Método simple para "limpiar" la consola imprimiendo líneas en blanco
-     */
     private void limpiarPantalla() {
         for (int i = 0; i < 50; i++) {
             System.out.println();
         }
     }
 
-    /**
-     * Método para pausar y esperar que el usuario presione ENTER
-     */
     private void pausar() {
         System.out.println("\nPresione ENTER para continuar...");
         try {
@@ -54,32 +51,35 @@ public class CompraVentaDolares {
     }
 
     public void gestionarCompraVentaDolares() {
-        tipoCambioCompra = 1190;
-        tipoCambioVenta = 1180;
-
         boolean salir = false;
         Scanner scanner = new Scanner(System.in);
 
         while (!salir) {
             mostrarMenuDolares();
+            String input = scanner.nextLine();
 
-            int opcion = scanner.nextInt();
+            try {
+                int opcion = Integer.parseInt(input);
 
-            switch (opcion) {
-                case 1:
-                    comprarDolares();
-                    break;
-                case 2:
-                    venderDolares();
-                    break;
-                case 0:
-                    limpiarPantalla();
-                    salir = true;
-                    System.out.println("Volviendo al menú de inversiones...");
-                    break;
-                default:
-                    System.out.println("Opción inválida. Por favor, ingrese una opción válida.");
-                    pausar();
+                switch (opcion) {
+                    case 1:
+                        comprarDolares();
+                        break;
+                    case 2:
+                        venderDolares();
+                        break;
+                    case 0:
+                        limpiarPantalla();
+                        salir = true;
+                        System.out.println("Volviendo al menú de inversiones...");
+                        break;
+                    default:
+                        System.out.println("Opción inválida. Por favor, ingrese una opción válida.");
+                        pausar();
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Por favor ingrese un número válido.");
+                pausar();
             }
         }
     }
@@ -96,27 +96,32 @@ public class CompraVentaDolares {
             System.out.printf("\nSaldo disponible en pesos: $%.2f%n", cuenta.getSaldoEnPesos());
             System.out.println("\nIngrese el monto de dólares que desea comprar:");
 
-            double monto = sc.nextDouble();
+            try {
+                double monto = Double.parseDouble(sc.nextLine());
 
-            if (monto <= 0) {
-                System.out.println("El monto debe ser mayor a 0. Inténtelo nuevamente.");
+                if (monto <= 0) {
+                    System.out.println("El monto debe ser mayor a 0. Inténtelo nuevamente.");
+                    pausar();
+                    continue;
+                }
+
+                double pesosNecesarios = monto * tipoCambioVenta;
+
+                if (cuenta.getSaldoEnPesos() < pesosNecesarios) {
+                    System.out.println("No tiene suficientes pesos para la compra. Inténtelo nuevamente.");
+                    pausar();
+                    continue;
+                }
+
+                cuenta.setSaldoEnPesos(cuenta.getSaldoEnPesos() - pesosNecesarios);
+                cuenta.setSaldoEnDolares(cuenta.getSaldoEnDolares() + monto);
+
+                mostrarResultadoOperacion("Compra", monto, pesosNecesarios);
+                transaccionExitosa = true;
+            } catch (NumberFormatException e) {
+                System.out.println("Por favor ingrese un monto válido.");
                 pausar();
-                continue;
             }
-
-            double pesosNecesarios = monto * tipoCambioVenta;
-
-            if (cuenta.getSaldoEnPesos() < pesosNecesarios) {
-                System.out.println("No tiene suficientes pesos para la compra. Inténtelo nuevamente.");
-                pausar();
-                continue;
-            }
-
-            cuenta.setSaldoEnPesos(cuenta.getSaldoEnPesos() - pesosNecesarios);
-            cuenta.setSaldoEnDolares(cuenta.getSaldoEnDolares() + monto);
-
-            mostrarResultadoOperacion("Compra", monto, pesosNecesarios);
-            transaccionExitosa = true;
         }
     }
 
@@ -132,26 +137,31 @@ public class CompraVentaDolares {
             System.out.printf("\nSaldo disponible en dólares: USD %.2f%n", cuenta.getSaldoEnDolares());
             System.out.println("\nIngrese el monto de dólares que desea vender:");
 
-            double montoDolares = sc.nextDouble();
+            try {
+                double montoDolares = Double.parseDouble(sc.nextLine());
 
-            if (montoDolares <= 0) {
-                System.out.println("El monto debe ser mayor a 0. Inténtelo nuevamente.");
+                if (montoDolares <= 0) {
+                    System.out.println("El monto debe ser mayor a 0. Inténtelo nuevamente.");
+                    pausar();
+                    continue;
+                }
+
+                if (montoDolares > cuenta.getSaldoEnDolares()) {
+                    System.out.println("No tiene suficientes dólares para la venta. Inténtelo nuevamente.");
+                    pausar();
+                    continue;
+                }
+
+                double pesosARecibir = montoDolares * tipoCambioVenta;
+                cuenta.setSaldoEnDolares(cuenta.getSaldoEnDolares() - montoDolares);
+                cuenta.setSaldoEnPesos(cuenta.getSaldoEnPesos() + pesosARecibir);
+
+                mostrarResultadoOperacion("Venta", montoDolares, pesosARecibir);
+                transaccionExitosa = true;
+            } catch (NumberFormatException e) {
+                System.out.println("Por favor ingrese un monto válido.");
                 pausar();
-                continue;
             }
-
-            if (montoDolares > cuenta.getSaldoEnDolares()) {
-                System.out.println("No tiene suficientes dólares para la venta. Inténtelo nuevamente.");
-                pausar();
-                continue;
-            }
-
-            double pesosARecibir = montoDolares * tipoCambioCompra;
-            cuenta.setSaldoEnDolares(cuenta.getSaldoEnDolares() - montoDolares);
-            cuenta.setSaldoEnPesos(cuenta.getSaldoEnPesos() + pesosARecibir);
-
-            mostrarResultadoOperacion("Venta", montoDolares, pesosARecibir);
-            transaccionExitosa = true;
         }
     }
 
