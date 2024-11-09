@@ -18,15 +18,18 @@ public class MainHomebanking {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        System.out.println("Bienvenido al sistema de cuentas bancarias");
+
+        System.out.println("\n╔═══════════════════════════════════════════════════╗");
+        System.out.println("║     Bienvenido al Sistema de Cuentas Bancarias    ║");
+        System.out.println("║ ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄ ║ ");
 
         // Abrir una nueva cuenta
-        System.out.println("Vamos a abrir una nueva cuenta:");
+        System.out.println("║ Vamos a abrir una nueva cuenta:                   ║ ");
+        AliasCBU.InicioAliasCBU();
         Cuenta nuevaCuenta = Cuenta.abrirCuenta();
 
         //Instanciar el Método de homebanking.AliasCBU
 
-        AliasCBU.InicioAliasCBU();
 
 
 // -------------------------------------------------------------------------------------------------------------------

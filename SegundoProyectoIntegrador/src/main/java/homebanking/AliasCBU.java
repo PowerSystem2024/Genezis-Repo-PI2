@@ -21,14 +21,14 @@ public class AliasCBU {
     public static void InicioAliasCBU() {
         // Crear instancia de la clase para acceder a métodos de generación
         AliasCBU aliasCBU = new AliasCBU();
-        
+
         // Generación de alias único y muestra en pantalla
         String alias = aliasCBU.generarAlias();
-        System.out.println("Alias generado: " + alias);
-        
+        System.out.printf("║ Alias generado: %-23s           ║%n", alias);
+
         // Generación de CBU único y muestra en pantalla
         String cbu = aliasCBU.generarCBU();
-        System.out.println("CBU generado: " + cbu);
+        System.out.printf("║ CBU generado: %s              ║%n", cbu);
         
         // Almacena el alias y el CBU generados en las listas de "existentes" (simulación de base de datos)
         aliasExistentes.add(alias);

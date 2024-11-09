@@ -80,9 +80,12 @@ public class Cuenta {
     public static String seleccionarTipoCuenta(Scanner sc) {
         while (true) {
             try {
-                System.out.println("Seleccione el tipo de cuenta:");
-                System.out.println("1. Cuenta Corriente");
-                System.out.println("2. Cuenta de Ahorros");
+                System.out.println("\n╔════════════════════════════════════╗");
+                System.out.println("║     SELECCIÓN DE TIPO DE CUENTA    ║");
+                System.out.println("╠════════════════════════════════════╣");
+                System.out.println("║ 1. Cuenta Corriente                ║");
+                System.out.println("║ 2. Cuenta de Ahorros               ║");
+                System.out.println("╚════════════════════════════════════╝");
                 System.out.print("Ingrese el número de su elección: ");
 
                 if (!sc.hasNextInt()) {
@@ -162,8 +165,8 @@ public class Cuenta {
 
         // Generar número de cuenta
         String numeroCuenta = generarNumeroAleatorio();
-        System.out.println("Número de cuenta generado: " + numeroCuenta);
-
+        System.out.printf("║ Número de cuenta generado: %s             ║%n", numeroCuenta);
+        System.out.println("╚═══════════════════════════════════════════════════╝");
         // Validar titular
         String titular = validarTitular(sc);
 
