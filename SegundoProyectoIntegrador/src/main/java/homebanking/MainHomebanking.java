@@ -3,13 +3,16 @@ package homebanking; /**
  * @author Sammy Guergachi <sguergachi at gmail.com>
  */
 
+import homebanking.inversiones.Inversiones;
+import homebanking.inversiones.PlazoFijo;
+
 import java.util.Scanner;
 
 
 
 public class MainHomebanking {
 
-    
+
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
@@ -49,11 +52,45 @@ public class MainHomebanking {
                     break;
                 case 3:
                     // Iniciar el proceso de transferencia
-                    Transferencia transferencia = new Transferencia(nuevaCuenta);
-                    transferencia.IniciarTransferencia(); // Cambiado a preguntarYIniciarTransferencia
+                    Transferencia transferencia = new Transferencia(nuevaCuenta); // objeto de la clase homebanking.Transferencia para gestionar la operación.
+                    transferencia.iniciarTransferencia(); // Llama al método encargado de realizar la transferencia
                     break;
                 case 4:
-//                    realizarInversion();
+//
+                    // BUCLE PARA MENÚ INVERSIONES
+
+                    boolean salirMenu = false;
+
+                    while (!salirMenu) {
+                        Inversiones.mostrarMenuInversiones();
+                        Scanner scanner2 = new Scanner(System.in);
+                        int opcionMenu = scanner.nextInt();
+
+                        switch (opcionMenu) {
+
+                            case 1:
+                                //Compra Venta de Dolares
+                                break;
+                            case 2:
+                                //Prestamos
+                                break;
+
+                            case 3:
+//
+                                PlazoFijo pf = new PlazoFijo(nuevaCuenta);
+                                pf.plazoFijo();
+                                break;
+
+                            case 0:
+                                salirMenu = true;
+                                System.out.println("Saliendo del Menú de Inversiones...");
+                                break;
+                            default:
+                                System.out.println("Opción inválida. Por favor, ingrese una opción válida.");
+                        }
+                    }
+
+
                     break;
                 case 5:
 //                    consultarSaldo();
