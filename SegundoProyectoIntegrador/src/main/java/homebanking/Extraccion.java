@@ -4,104 +4,112 @@ import java.util.Scanner;
 import java.util.InputMismatchException;
 
 public class Extraccion {
+    // Variables globales
+    private double montoExtraccion;
+    private Cuenta cuentaOrigen;
 
-
-        // Variables globales
-        private double montoExtraccion;
-        private Cuenta cuentaOrigen;
-
-        // Constructor para inicializar la cuenta de origen
+    // Constructor para inicializar la cuenta de origen
     public Extraccion(Cuenta cuenta) {
         this.cuentaOrigen = cuenta;
     }
 
     // Método para mostrar el menú y manejar las opciones
-        public void mostrarMenu() {
-            Scanner sc = new Scanner(System.in);
-            int opcion;
+    public void mostrarMenu() {
+        Scanner sc = new Scanner(System.in);
+        int opcion;
 
-            do {
-                // Mostrar menú
-                System.out.println("\n--- Menú de homebanking.Cuenta Bancaria ---");
-                System.out.println("1. Realizar Extracción");
-                System.out.println("2. Consultar Saldo");
-                System.out.println("3. Salir");
-                System.out.print("Seleccione una opción: ");
+        do {
+            // Mostrar menú
+            System.out.println("\n--- Menú de Cuenta Bancaria ---");
+            System.out.println("1. Realizar Extracción en Pesos");
+            System.out.println("2. Realizar Extracción en Dólares");
+            System.out.println("3. Consultar Saldos");
+            System.out.println("4. Salir");
+            System.out.print("Seleccione una opción: ");
 
-                // Validación de entrada para evitar errores
-                try {
-                    opcion = sc.nextInt();
-                    switch (opcion) {
-                        case 1:
-                            // Opción para realizar extracción
-                            realizarExtraccionConsola();
-                            break;
-                        case 2:
-                            // Opción para consultar saldo
-                            System.out.println("Saldo actual: $" + cuentaOrigen.getSaldoEnPesos());
-                            break;
-                        case 3:
-                            // Opción para salir
-                            System.out.println("Gracias por utilizar nuestro servicio. ¡Hasta luego!");
-                            break;
-                        default:
-                            System.out.println("Opción no válida. Por favor, seleccione una opción válida.");
-                    }
-                } catch (InputMismatchException e) {
-                    System.out.println("Entrada inválida. Por favor, ingrese un número.");
-                    sc.next(); // Limpiar la entrada incorrecta
-                    opcion = 0; // Reiniciar la opción para que no salga del bucle
+            try {
+                opcion = sc.nextInt();
+                switch (opcion) {
+                    case 1:
+                        realizarExtraccionConsola("PESOS");
+                        break;
+                    case 2:
+                        realizarExtraccionConsola("DOLARES");
+                        break;
+                    case 3:
+                        // Mostrar ambos saldos
+                        System.out.println("Saldo en Pesos: $" + cuentaOrigen.getSaldoEnPesos());
+                        System.out.println("Saldo en Dólares: U$D " + cuentaOrigen.getSaldoEnDolares());
+                        break;
+                    case 4:
+                        System.out.println("Gracias por utilizar nuestro servicio. ¡Hasta luego!");
+                        break;
+                    default:
+                        System.out.println("Opción no válida. Por favor, seleccione una opción válida.");
                 }
-            } while (opcion != 3); // El bucle continúa hasta que el usuario elija salir
-
-        }
-
-        // Método para realizar la extracción de dinero con entrada desde la consola
-        public void realizarExtraccionConsola() {
-            Scanner sc = new Scanner(System.in);
-            double extraccion = 0;
-            boolean entradaValida = false;
-
-            // Bucle para solicitar un monto positivo y numérico
-            while (!entradaValida) {
-                try {
-                    System.out.print("Ingrese el monto que desea retirar: ");
-                    extraccion = sc.nextDouble();
-
-                    // Validar si el monto es positivo
-                    if (extraccion <= 0) {
-                        System.out.println("Por favor, ingrese un monto positivo.");
-                    } else {
-                        entradaValida = true; // Marca la entrada como válida
-                    }
-                } catch (InputMismatchException e) {
-                    System.out.println("Entrada inválida. Por favor, ingrese un número válido.");
-                    sc.next(); // Limpia la entrada incorrecta del scanner
-                }
+            } catch (InputMismatchException e) {
+                System.out.println("Entrada inválida. Por favor, ingrese un número.");
+                sc.next();
+                opcion = 0;
             }
+        } while (opcion != 4);
+    }
 
-            // Llama al método realizarExtraccion con el monto ingresado
-            realizarExtraccion(extraccion);
+    // Método modificado para realizar la extracción con tipo de moneda
+    public void realizarExtraccionConsola(String tipoMoneda) {
+        Scanner sc = new Scanner(System.in);
+        double extraccion = 0;
+        boolean entradaValida = false;
+
+        while (!entradaValida) {
+            try {
+                System.out.print("Ingrese el monto que desea retirar en " + tipoMoneda + ": ");
+                extraccion = sc.nextDouble();
+
+                if (extraccion <= 0) {
+                    System.out.println("Por favor, ingrese un monto positivo.");
+                } else {
+                    entradaValida = true;
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Entrada inválida. Por favor, ingrese un número válido.");
+                sc.next();
+            }
         }
 
-        // Método para realizar la extracción de dinero
-        public void realizarExtraccion(double extraccion) {
-            this.montoExtraccion = extraccion;
+        realizarExtraccion(extraccion, tipoMoneda);
+    }
 
-            if (verificarExtraccion(montoExtraccion)) {
-                cuentaOrigen.retirar(montoExtraccion);
+    // Método modificado para realizar la extracción según el tipo de moneda
+    public void realizarExtraccion(double extraccion, String tipoMoneda) {
+        this.montoExtraccion = extraccion;
+
+        if (tipoMoneda.equals("PESOS")) {
+            if (verificarExtraccionPesos(montoExtraccion)) {
+                cuentaOrigen.setSaldoEnPesos(cuentaOrigen.getSaldoEnPesos() - montoExtraccion);
                 System.out.println("Extracción exitosa. Has retirado: $" + montoExtraccion);
-                System.out.println("Saldo restante en cuenta: $" + cuentaOrigen.getSaldoEnPesos());
+                System.out.println("Saldo restante en pesos: $" + cuentaOrigen.getSaldoEnPesos());
             } else {
-                System.out.println("Extracción fallida. Saldo insuficiente.");
+                System.out.println("Extracción fallida. Saldo insuficiente en pesos.");
             }
-        }
-
-        // Método para verificar si hay saldo suficiente
-        private boolean verificarExtraccion(double cantidad) {
-            return cuentaOrigen.getSaldoEnPesos() >= cantidad;
+        } else {  // DOLARES
+            if (verificarExtraccionDolares(montoExtraccion)) {
+                cuentaOrigen.setSaldoEnDolares(cuentaOrigen.getSaldoEnDolares() - montoExtraccion);
+                System.out.println("Extracción exitosa. Has retirado: U$D " + montoExtraccion);
+                System.out.println("Saldo restante en dólares: U$D " + cuentaOrigen.getSaldoEnDolares());
+            } else {
+                System.out.println("Extracción fallida. Saldo insuficiente en dólares.");
+            }
         }
     }
 
+    // Método para verificar saldo en pesos
+    private boolean verificarExtraccionPesos(double cantidad) {
+        return cuentaOrigen.getSaldoEnPesos() >= cantidad;
+    }
 
-
+    // Método para verificar saldo en dólares
+    private boolean verificarExtraccionDolares(double cantidad) {
+        return cuentaOrigen.getSaldoEnDolares() >= cantidad;
+    }
+}
