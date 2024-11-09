@@ -92,7 +92,7 @@ public class FAQs {
 
             if (opcionFAQs != 10) {
                 System.out.println("");
-                System.out.println("Presione cualquier tecla para volver al menú de homebanking.FAQs.");
+                System.out.println("Presione ENTER para volver al menú de Preguntas Frecuentes.");
                 entrada.nextLine(); 
             }
         } while (opcionFAQs != 10);  //Va a repetir hasta que se elija la opción de salir

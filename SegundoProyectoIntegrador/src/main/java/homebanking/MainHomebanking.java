@@ -100,20 +100,13 @@ public class MainHomebanking {
 
                     break;
                 case 6:
-//                    consultarTarjetas();
+                  FAQs mostrarPreguntasFrecuentes = new FAQs();
+                mostrarPreguntasFrecuentes.mostrarPreguntasFrecuentes();
                     break;
-                case 7:
-//                    consultarConsumos();
-                    break;
-                case 8:
-//
-                    FAQs mostrarPreguntasFrecuentes = new FAQs();
-                    mostrarPreguntasFrecuentes.mostrarPreguntasFrecuentes();
-//
-                    break;
+
                 case 0:
                     salir = true;
-                    System.out.println("Saliendo del programa...");
+                    System.out.println("Saliendo del HOMEBANKING...");
                     break;
                 default:
                     System.out.println("Opción inválida. Por favor, ingrese una opción válida.");
