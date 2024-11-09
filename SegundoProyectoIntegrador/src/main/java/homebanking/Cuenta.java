@@ -25,7 +25,6 @@ public class Cuenta {
     public String getNumeroCuenta() {
         return numeroCuenta;
     }
-
     public void setNumeroCuenta(String numeroCuenta) {
         this.numeroCuenta = numeroCuenta;
     }
@@ -33,7 +32,6 @@ public class Cuenta {
     public String getTitular() {
         return titular;
     }
-
     public void setTitular(String titular) {
         this.titular = titular;
     }
@@ -41,7 +39,6 @@ public class Cuenta {
     public double getSaldoEnPesos() {
         return saldoEnPesos;
     }
-
     public void setSaldoEnPesos(double saldoEnPesos) {
         this.saldoEnPesos = saldoEnPesos;
     }
@@ -49,7 +46,6 @@ public class Cuenta {
     public double getSaldoEnDolares() {
         return saldoEnDolares;
     }
-
     public void setSaldoEnDolares(double saldoEnDolares) {
         this.saldoEnDolares = saldoEnDolares;
     }
@@ -57,7 +53,6 @@ public class Cuenta {
     public String getTipoCuenta() {
         return tipoCuenta;
     }
-
     public void setTipoCuenta(String tipoCuenta) {
         this.tipoCuenta = tipoCuenta;
     }
@@ -65,10 +60,11 @@ public class Cuenta {
     public boolean isEstaActiva() {
         return estaActiva;
     }
-
     public void setEstaActiva(boolean estaActiva) {
         this.estaActiva = estaActiva;
     }
+
+    //================================================================================================================\\
 
     // Método para generar un número aleatorio de cuenta
     private static String generarNumeroAleatorio() {
@@ -85,9 +81,9 @@ public class Cuenta {
         while (true) {
             try {
                 System.out.println("Seleccione el tipo de cuenta:");
-                System.out.println("1. homebanking.Cuenta Corriente");
-                System.out.println("2. homebanking.Cuenta de Ahorros");
-                System.out.println("3. homebanking.Cuenta de nómina");
+                System.out.println("1. Cuenta Corriente");
+                System.out.println("2. Cuenta de Ahorros");
+                System.out.println("3. Cuenta de nómina");
                 System.out.print("Ingrese el número de su elección: ");
 
                 if (!sc.hasNextInt()) {
@@ -100,9 +96,9 @@ public class Cuenta {
                 sc.nextLine(); // Consume el salto de línea
 
                 return switch (opcion) {
-                    case 1 -> "homebanking.Cuenta Corriente";
-                    case 2 -> "homebanking.Cuenta de Ahorros";
-                    case 3 -> "homebanking.Cuenta de nómina";
+                    case 1 -> "Cuenta Corriente";
+                    case 2 -> "Cuenta de Ahorros";
+                    case 3 -> "Cuenta de nómina";
                     default -> {
                         System.out.println("Error: Opción no válida. Por favor, seleccione 1, 2 o 3.");
                         yield seleccionarTipoCuenta(sc); // Recursión para volver a intentar
