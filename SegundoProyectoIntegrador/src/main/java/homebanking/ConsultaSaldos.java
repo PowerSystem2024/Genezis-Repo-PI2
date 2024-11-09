@@ -23,8 +23,7 @@ public class ConsultaSaldos {
             System.out.println("Consulta de Saldos.");
             System.out.println("1.Consulta saldo de cuenta en pesos.");
             System.out.println("2.Consulta saldo de cuenta en dólares estadounidenses.");
-            System.out.println("3.Consulta saldo de tarjetas asociadas a la cuenta.");
-            System.out.println("4. Regresar al menú principal.");
+            System.out.println("3. Regresar al menú principal.");
 
             //Validación para que el usuario ingrese un número
             while (!sc.hasNextInt()) {
@@ -44,9 +43,6 @@ public class ConsultaSaldos {
                     consultaSaldoDolares();
                     break;
                 case 3:
-                    consultaTarjetas();
-                    break;
-                case 4:
                     System.out.println("Regresando al menú principal...");
 
                     break;
@@ -55,7 +51,7 @@ public class ConsultaSaldos {
 
             }
 
-        } while (opcion != 4);
+        } while (opcion != 3);
 
     }
 
@@ -65,11 +61,7 @@ public class ConsultaSaldos {
     }
 
     public void consultaSaldoDolares(){
-        System.out.println("Saldo actual de la cuenta en dólares estadounidenses: "+cuenta.getSaldoEnDolares());
-    }
-
-    public void consultaTarjetas(){
-        System.out.println("El saldo de su tarjeta de crédito es: ");
+        System.out.println("Saldo actual de la cuenta en dólares estadounidenses: U$D "+cuenta.getSaldoEnDolares());
     }
 
 }
