@@ -8,6 +8,10 @@ public class PlazoFijo {
 
     public Cuenta cuenta;
 
+    public PlazoFijo(Cuenta cuenta) {
+        this.cuenta = cuenta;
+    }
+
     public void plazoFijo() {
         System.out.println("Función de Plazo Fijo");
         Scanner sc = new Scanner(System.in);
@@ -79,12 +83,6 @@ public class PlazoFijo {
         cuenta.setSaldoEnPesos(saldoCuenta);
 
         System.out.println("Nuevo saldo de cuenta: $"+ cuenta.getSaldoEnPesos());
-
-
-
-
-
-
 
 
 
