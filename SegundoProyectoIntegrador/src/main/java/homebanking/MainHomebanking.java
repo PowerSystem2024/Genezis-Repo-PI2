@@ -49,8 +49,8 @@ public class MainHomebanking {
                     break;
                 case 3:
                     // Iniciar el proceso de transferencia
-                    Transferencia transferencia = new Transferencia(nuevaCuenta); // objeto de la clase homebanking.Transferencia para gestionar la operación.
-                    transferencia.iniciarTransferencia(); // Llama al método encargado de realizar la transferencia
+                    Transferencia transferencia = new Transferencia(nuevaCuenta);
+                    transferencia.IniciarTransferencia(); // Cambiado a preguntarYIniciarTransferencia
                     break;
                 case 4:
 //                    realizarInversion();

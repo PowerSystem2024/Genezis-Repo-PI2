@@ -12,7 +12,21 @@ public class Transferencia {
 
     // Constructor que inicializa la cuenta de origen
     public Transferencia(Cuenta cuentaOrigen) {
-        this.cuentaOrigen = cuentaOrigen; // homebanking.Transferencia toma como parámetro una instancia de la clase homebanking.Cuenta, que representa la cuenta de origen.
+        this.cuentaOrigen = cuentaOrigen; // Transferencia toma como parámetro una instancia de la clase Cuenta, que representa la cuenta de origen.
+    }
+
+    // Nuevo método para preguntar si el usuario desea realizar una transferencia
+    public void IniciarTransferencia() {
+        Scanner sc = new Scanner(System.in); // Objeto para leer la entrada del usuario desde la consola
+        System.out.println("\n¿Desea realizar una transferencia? (s/n)"); // Solicita confirmación al usuario
+        String respuesta = sc.nextLine();
+
+        if (respuesta.equalsIgnoreCase("s")) { // Si la respuesta es afirmativa
+            iniciarTransferencia(); // Inicia el proceso de transferencia llamando al método iniciarTransferencia
+            mostrarEstadoCuenta(); // Muestra el estado actualizado de la cuenta después de la transferencia
+        } else {
+            System.out.println("Gracias por usar el sistema de transferencias."); // Mensaje de salida
+        }
     }
 
     // Método para iniciar el proceso de transferencia
@@ -22,9 +36,9 @@ public class Transferencia {
         this.monto = ingresarMonto(); // solicita que se ingrese el monto a transferir
 
         if (realizarTransferencia()) { // Si la transferencia fue exitosa, se ejecuta el código
-            System.out.println("homebanking.Transferencia exitosa de " + monto + " " + monedaSeleccionada + " desde la cuenta " + cuentaOrigen.getNumeroCuenta());
+            System.out.println("Transferencia exitosa de " + monto + " " + monedaSeleccionada + " desde la cuenta " + cuentaOrigen.getNumeroCuenta());
         } else { // Si la transferencia falló
-            System.out.println("homebanking.Transferencia fallida.");
+            System.out.println("Transferencia fallida.");
         }
     }
 
@@ -113,5 +127,16 @@ public class Transferencia {
             }
         }
         return monto; // retorna el monto una vez que es válido
+    }
+
+    // Método que muestra el estado de la cuenta después de la transferencia
+    private void mostrarEstadoCuenta() {
+        System.out.println("\nEstado de la cuenta después de la transferencia:");
+        System.out.println("Número de cuenta: " + cuentaOrigen.getNumeroCuenta());
+        System.out.println("Titular: " + cuentaOrigen.getTitular());
+        System.out.println("Saldo en pesos: " + cuentaOrigen.getSaldoEnPesos());
+        System.out.println("Saldo en dólares: " + cuentaOrigen.getSaldoEnDolares());
+        System.out.println("Tipo de cuenta: " + cuentaOrigen.getTipoCuenta());
+        System.out.println("Estado: " + (cuentaOrigen.isEstaActiva() ? "Activa" : "Inactiva"));
     }
 }
