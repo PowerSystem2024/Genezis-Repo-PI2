@@ -1,17 +1,3 @@
 
-^
-.src/main/java/homebanking/MainHomebanking.java,6\8\6829bd1568d68cb14997991855a893fcbe25819b
-f
-6src/main/java/homebanking/inversiones/Inversiones.java,5\6\5640713586ddf79b7a109d94e4acc315ad7f7e36
-U
-%src/main/java/homebanking/Cuenta.java,7\c\7ccf46adde959f95819d096006bb90bc11baddc9
-m
-=src/main/java/homebanking/inversiones/CompraVentaDolares.java,2\9\29b4bf509c11eda3831c9cb39c87557903471041
-\
-,src/main/java/homebanking/MenuPrincipal.java,6\7\675b94527ebb9a485e73ed70034acdf9d15a8559
-d
-4src/main/java/homebanking/inversiones/PlazoFijo.java,8\6\8661af75055416fdc005beabbad37e1ac82da08c
-]
--src/main/java/homebanking/ConsultaSaldos.java,4\d\4de374a87dae7bce818fe325764311b1ee290cb5
-S
-#src/main/java/homebanking/FAQs.java,7\1\715346b327d2bc304ad58f691641c0da9e7bfd53
+W
+'src/main/java/homebanking/Deposito.java,0\4\047c3cabd32ba1929416776a6744d6f900190038
