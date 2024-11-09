@@ -79,15 +79,8 @@ public class MainHomebanking {
                                 compraVentaDolares.gestionarCompraVentaDolares();
                                 break;
                             case 2:
-                                //Prestamos
-                                // Crear una instancia de la clase Prestamos
-                                Prestamos sistemaPrestamos = new Prestamos();
-
-                                // Llamar al método mostrarMenu() para iniciar el programa
-                                sistemaPrestamos.mostrarMenu();
-
-                                // El resto del código se ejecutará dentro del método mostrarMenu()
-                                // y el bucle do-while, como se definió anteriormente en la clase Prestamos.
+                                Prestamos prestamos = new Prestamos(nuevaCuenta);
+                                prestamos.inicioPrestamos();
                                 break;
 
                             case 3:
