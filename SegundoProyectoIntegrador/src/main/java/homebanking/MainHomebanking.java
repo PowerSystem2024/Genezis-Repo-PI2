@@ -3,6 +3,7 @@ package homebanking; /**
  * @author Sammy Guergachi <sguergachi at gmail.com>
  */
 
+import homebanking.inversiones.CompraVentaDolares;
 import homebanking.inversiones.Inversiones;
 import homebanking.inversiones.PlazoFijo;
 
@@ -70,6 +71,8 @@ public class MainHomebanking {
 
                             case 1:
                                 //Compra Venta de Dolares
+                                CompraVentaDolares compraVentaDolares = new CompraVentaDolares(nuevaCuenta);
+                                compraVentaDolares.gestionarCompraVentaDolares();
                                 break;
                             case 2:
                                 //Prestamos
