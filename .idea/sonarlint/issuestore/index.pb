@@ -31,3 +31,13 @@ S
 .src/main/java/homebanking/MainHomebanking.java,6\8\6829bd1568d68cb14997991855a893fcbe25819b
 m
 =src/main/java/homebanking/inversiones/CompraVentaDolares.java,2\9\29b4bf509c11eda3831c9cb39c87557903471041
+f
+6src/main/java/homebanking/inversiones/Inversiones.java,5\6\5640713586ddf79b7a109d94e4acc315ad7f7e36
+\
+,src/main/java/homebanking/Transferencia.java,d\2\d21a393d1df28470310c9650cfc3c003bb8d95fb
+U
+%src/main/java/homebanking/Cuenta.java,7\c\7ccf46adde959f95819d096006bb90bc11baddc9
+d
+4src/main/java/homebanking/inversiones/PlazoFijo.java,8\6\8661af75055416fdc005beabbad37e1ac82da08c
+]
+-src/main/java/homebanking/ConsultaSaldos.java,4\d\4de374a87dae7bce818fe325764311b1ee290cb5
