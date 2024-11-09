@@ -83,7 +83,6 @@ public class Cuenta {
                 System.out.println("Seleccione el tipo de cuenta:");
                 System.out.println("1. Cuenta Corriente");
                 System.out.println("2. Cuenta de Ahorros");
-                System.out.println("3. Cuenta de nómina");
                 System.out.print("Ingrese el número de su elección: ");
 
                 if (!sc.hasNextInt()) {
@@ -98,9 +97,8 @@ public class Cuenta {
                 return switch (opcion) {
                     case 1 -> "Cuenta Corriente";
                     case 2 -> "Cuenta de Ahorros";
-                    case 3 -> "Cuenta de nómina";
                     default -> {
-                        System.out.println("Error: Opción no válida. Por favor, seleccione 1, 2 o 3.");
+                        System.out.println("Error: Opción no válida. Por favor, seleccione 1 o 2.");
                         yield seleccionarTipoCuenta(sc); // Recursión para volver a intentar
                     }
                 };

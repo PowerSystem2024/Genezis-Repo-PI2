@@ -11,3 +11,7 @@ m
 ,src/main/java/homebanking/MenuPrincipal.java,6\7\675b94527ebb9a485e73ed70034acdf9d15a8559
 d
 4src/main/java/homebanking/inversiones/PlazoFijo.java,8\6\8661af75055416fdc005beabbad37e1ac82da08c
+]
+-src/main/java/homebanking/ConsultaSaldos.java,4\d\4de374a87dae7bce818fe325764311b1ee290cb5
+S
+#src/main/java/homebanking/FAQs.java,7\1\715346b327d2bc304ad58f691641c0da9e7bfd53
